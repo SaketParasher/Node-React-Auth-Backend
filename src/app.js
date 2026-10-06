@@ -1,0 +1,68 @@
+import express from 'express'
+import session from 'express-session'
+import cors from 'cors'
+import { config } from 'dotenv'
+
+import authRouter from './routes/authRoutes.js'
+import profileRouter from './routes/profileRoutes.js'
+import adminRouter from './routes/adminRoutes.js'
+
+
+config()
+
+if (!process.env.FRONTEND_URL) {
+    throw new Error("FRONTEND_URL is not defined");
+}
+
+if (!process.env.SESSION_SECRET) {
+    throw new Error("SESSION_SECRET is not defined");
+}
+
+const app = express()
+
+app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true
+}))
+app.use(express.json())
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        path: '/',
+        httpOnly: true,
+        secure: false,
+        maxAge: 60000 * 60 * 60,
+    }
+
+}))
+
+app.get('/', (req, res) => {
+    res.end("Hello World")
+})
+
+app.use('/api/auth', authRouter)
+app.use('/api/admin', adminRouter)
+app.use('/api', profileRouter)
+
+
+app.get('/api/session-test', (req, res) => {
+    console.log(req.session)
+
+    if (req.session.views) {
+        req.session.views++
+        res.setHeader('Content-Type', 'text/html');
+        res.write('<p>views: ' + req.session.views + '</p>');
+        res.write('<p>expires in: ' + req.session.cookie.maxAge / 1000 + 's</p>');
+        res.end();
+    } else {
+        req.session.views = 1;
+        res.end('welcome to the session demo. refresh!');
+    }
+})
+
+export default app;
+
+

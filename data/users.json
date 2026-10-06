@@ -1,0 +1,57 @@
+[
+  {
+    "id": "01a0fd86-d2f5-72dc-89c3-f00e26b67e3e",
+    "name": "saket saurav",
+    "email": "saket.parasher@gmail.com",
+    "hashedPassword": {
+      "salt": "f2c603c42634aad0afa02592bf9a8d92",
+      "passwordHash": "f71c6372c9de563b65385dccf5cfab09c8bd9bf459c1e7fa19d120b2ae6f3dbdadedcec61b6b6a9435c55158a25315e5be2fafef6dab46f44664ef8f8db21673"
+    },
+    "role": "user",
+    "createdAt": "2026-10-02T16:51:06.614Z"
+  },
+  {
+    "id": "01a0fd89-4662-78eb-bdc5-48915b3760d7",
+    "name": "Ghits",
+    "email": "amazingghits@gmail.com",
+    "hashedPassword": {
+      "salt": "f513f2f076a8256319fd319730831643",
+      "passwordHash": "d2f1e1413d732237e40de530adbc0ef4e5a1c59af63573e98db17c521861835dd61b49a247a96581fd8149731d8242389e4c9db8bf1d38f30393e82fd8f8dcf8"
+    },
+    "role": "user",
+    "createdAt": "2026-10-02T16:53:47.234Z"
+  },
+  {
+    "id": "01a0fdda-459d-7cfa-bf14-ec67a6801084",
+    "name": "Ghits",
+    "email": "amazingghits2@gmail.com",
+    "hashedPassword": {
+      "salt": "e88079689857701da95bd29675137039",
+      "passwordHash": "aae62f6cb338b7ca3e392f27a87186b92de93417b686c024508936cc2ff68931f1f8f261acb9e458784ca9ae4a6405a8fa8d0e26c895b942e8faa12ec90a347e"
+    },
+    "role": "user",
+    "createdAt": "2026-10-02T18:22:15.454Z"
+  },
+  {
+    "id": "01a0fdf9-a9c2-769a-b237-e2dda810fdce",
+    "name": "Ghits",
+    "email": "amazingghits3@gmail.com",
+    "hashedPassword": {
+      "salt": "b5f0c71af8d50090c12235278d409e29",
+      "passwordHash": "73507e59dcd8cc12136d1131970c09ea5d61158bc1e6fafc41cc101e470d1bd695e33434126b97c8b2c6420fd5a06e5ecb6b9ea5a3c5fff1b6f01ce87f97dbd6"
+    },
+    "role": "admin",
+    "createdAt": "2026-10-02T18:56:32.706Z"
+  },
+  {
+    "id": "01a106bc-c6e0-79d9-b3f2-15007b475482",
+    "name": "Tukuwa",
+    "email": "tuk@gmail.com",
+    "hashedPassword": {
+      "salt": "7857616f1a0ee64154d494b156138c29",
+      "passwordHash": "b970093c51533ac9127bcb530bd1d6ec711a9401cdf8c2e2184cba6676c0b5e0b162d33dfd219187ac822889a4a701f4bdd52477013e2864dc1d5a621196afba"
+    },
+    "role": "user",
+    "createdAt": "2026-10-04T11:46:37.409Z"
+  }
+]
