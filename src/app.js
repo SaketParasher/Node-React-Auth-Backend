@@ -26,15 +26,17 @@ app.use(cors({
 }))
 app.use(express.json())
 
+app.set("trust-proxy", 1)
+
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
-        path: '/',
         httpOnly: true,
-        secure: false,
-        maxAge: 60000 * 60 * 60,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        maxAge: 1000 * 60 * 60,
     }
 
 }))
