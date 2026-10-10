@@ -23,6 +23,16 @@ const app = express()
 app.set("trust-proxy", 1)
 
 app.use((req, res, next) => {
+    const cloudFrontProto = req.headers["cloudfront-forwarded-proto"];
+
+    if (cloudFrontProto && !req.headers["x-forwarded-proto"]) {
+        req.headers["x-forwarded-proto"] = cloudFrontProto;
+    }
+
+    next();
+});
+
+app.use((req, res, next) => {
     console.log({
         path: req.path,
         protocol: req.protocol,
