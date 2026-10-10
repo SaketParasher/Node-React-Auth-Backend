@@ -20,13 +20,25 @@ if (!process.env.SESSION_SECRET) {
 
 const app = express()
 
+app.set("trust-proxy", 1)
+
+app.use((req, res, next) => {
+    console.log({
+        path: req.path,
+        protocol: req.protocol,
+        secure: req.secure,
+        xForwardedProto: req.headers["x-forwarded-proto"],
+        cloudFrontForwardedProto: req.headers["cloudfront-forwarded-proto"]
+    });
+
+    next();
+});
+
 app.use(cors({
     origin: process.env.FRONTEND_URL,
     credentials: true
 }))
 app.use(express.json())
-
-app.set("trust-proxy", 1)
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
