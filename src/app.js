@@ -54,7 +54,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     proxy: true,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: false, // cookie won't be set in response until we add / change something in session
     cookie: {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
