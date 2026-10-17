@@ -72,6 +72,12 @@ app.use('/api/auth', authRouter)
 app.use('/api/admin', adminRouter)
 app.use('/api', profileRouter)
 
+app.get('/test/ci', (req, res) => {
+    return res.status(200).json({
+        message: "Success from CI/CD"
+    })
+})
+
 
 app.get('/api/session-test', (req, res) => {
     console.log(req.session)
